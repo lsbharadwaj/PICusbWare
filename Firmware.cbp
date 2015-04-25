@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Firmware" />
+		<Option pch_mode="2" />
+		<Option compiler="sdcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Firmware" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="sdcc" />
+				<Compiler>
+					<Add option="-mpic16" />
+					<Add option="--debug" />
+					<Add option="-p18f4550 -Wl -m --cyclomatic --use-non-free --verbose" />
+					<Add directory="Include" />
+					<Add directory="USBStack/Include" />
+				</Compiler>
+				<Linker>
+					<Add library="/usr/local/share/sdcc/lib/pic16/libc18f.lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Firmware" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="sdcc" />
+				<Compiler>
+					<Add option="-mpic16" />
+					<Add option="--opt-code-size" />
+					<Add option="-p18f4550 -Wl -m --cyclomatic --use-non-free" />
+					<Add directory="Include" />
+					<Add directory="USBStack/Include" />
+				</Compiler>
+				<Linker>
+					<Add library="/usr/local/share/sdcc/lib/pic16/libc18f.lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="Include/main.h" />
+		<Unit filename="Source/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="USBStack/Include/USBClassReq.h" />
+		<Unit filename="USBStack/Include/USBConstantValues.h" />
+		<Unit filename="USBStack/Include/USBCore.h" />
+		<Unit filename="USBStack/Include/USBDescriptor.h" />
+		<Unit filename="USBStack/Include/USBGlobalExtern.h" />
+		<Unit filename="USBStack/Include/USBGlobalVar.h" />
+		<Unit filename="USBStack/Include/USBStandardReq.h" />
+		<Unit filename="USBStack/Include/USBTransferCompHandlers.h" />
+		<Unit filename="USBStack/Include/USBTypedef.h" />
+		<Unit filename="USBStack/Include/USBdefineValues.h" />
+		<Unit filename="USBStack/Source/USBClassRequest.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="USBStack/Source/USBCore.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="USBStack/Source/USBStandardReq.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="USBStack/Source/USBTransferCompHandlers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
