@@ -22,7 +22,7 @@
 #include <USBCore.h>
 #include <USBGlobalVar.h>
 #include <USBDescriptor.h>
-
+#include <USBTypedef.h>
 /**The function sets the regiester values for USB interrupts and its configuration
 */
 void UsbInit()
@@ -37,6 +37,14 @@ void UsbInit()
     UIEbits.ACTVIE = 1;
     IPR2bits.USBIP = 1; //Make USB interrupt priority high
     PIE2bits.USBIE = 1; //Enable USB Interrupts
+
+    // Initialize the ring buffer
+    USBRingBuf.startInd = 0;
+    USBRingBuf.endInd = 1;      //< One less byte inorder to identify the end
+    USBRingBuf.sizeInd = 23;    //< One byte less size
+    //--------------------------
+    dataCnt = 0;
+
     UCONbits.USBEN = 1;         //Finally enable the USB module
 }
 

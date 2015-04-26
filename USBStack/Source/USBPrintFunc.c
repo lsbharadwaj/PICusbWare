@@ -26,7 +26,6 @@
 
 PUTCHAR(c)
 {
-    static char dataCnt ;
     while(EP[2].inTranPending  != 0);
 
     EP2inDataHolder[dataCnt] = c;
@@ -39,5 +38,38 @@ PUTCHAR(c)
             inTranHandler(2);
             dataCnt = 0;
         }
+}
 
+void USBflush()
+{
+    EP[2].inTranPending = 1;
+    inTranHandler(2);
+    dataCnt = 0;
+}
+char getchar()
+{
+    char updatedStart, retData;
+    updatedStart = USBRingBuf.startInd + 1;
+    if(updatedStart > USBRingBuf.sizeInd)
+        updatedStart = 0;
+
+    while(updatedStart == USBRingBuf.endInd);
+
+    retData = USBRingBuf.buf[updatedStart];
+    USBRingBuf.startInd = updatedStart;
+
+    return(retData);
+}
+
+
+void USBgets(char *data, char maxDataSize)
+{
+    char c;
+    char i = 0;
+    while((c = getchar())!='\r' && i < maxDataSize - 1)
+        {
+            data[i] = c;
+            i++;
+        }
+    data[i] = '\0';
 }

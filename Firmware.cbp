@@ -59,6 +59,9 @@
 		<Unit filename="USBStack/Source/USBCore.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="USBStack/Source/USBPrintFunc.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="USBStack/Source/USBStandardReq.c">
 			<Option compilerVar="CC" />
 		</Unit>

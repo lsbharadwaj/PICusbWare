@@ -173,4 +173,12 @@ enum Stages
     Data,
     Handshake
 };
+
+typedef struct
+{
+    char startInd;
+    char endInd;
+    char sizeInd;
+    char buf[24];
+}ringBufType;
 #endif // __USB_TYPEDEF_H
