@@ -1,4 +1,5 @@
 #include <main.h>
+
 void DeviceInit()
 {
     //--Enable PORT A leds by disabling adc
@@ -10,6 +11,8 @@ void DeviceInit()
     RCONbits.IPEN = 1;
 
 }
+
+
 void main()
 {
     char i = 0;
@@ -19,22 +22,15 @@ void main()
     UsbInit();
     INTCONbits.GIE = 1;
 
-     //--------------------------------------------//
-while(1)
-    {
-    LATA ^= 0xFF;
-//    delay10ktcy(255);
-//    if(BDTable[2].BDin.UOWN == 0)
-//    {
-//        for (i = 0 ; i< 9 ; i++)
-//            EP2inDataHolder[i] = i + 97;
-//        EP[2].InBytesCopied = 0;
-//        EP[2].InBytesTotal =  9;
-//        EP[2].inTranPending = 1;
-//        inTranHandler(2);
-//    }
-    delay10ktcy(200);
-    }
+    //--------------------------------------------//
+    stdout = STREAM_USER;
+    while(1)
+        {
+            LATA ^= 0xff;
+            printf("This is a test %d\n",i);
+            i++;
+            delay10ktcy(200);
+        }
     //--------------------------------------------//
 
 
@@ -43,10 +39,10 @@ while(1)
 void ISRH() __interrupt(1)
 {
     if(PIR2bits.USBIF == 1)
-    {
-        UsbInterrupHandler();
-        PIR2bits.USBIF = 0;
-    }
+        {
+            UsbInterrupHandler();
+            PIR2bits.USBIF = 0;
+        }
 }
 void ISRL() __interrupt(2)
 {

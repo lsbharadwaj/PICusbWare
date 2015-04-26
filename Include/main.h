@@ -10,6 +10,8 @@
 #include <pic16/delay.h>
 
 #include <USBGlobalExtern.h>
+
+#include <pic16/stdio.h>
 //------------Set the Configuration bits here -------------------------------//
 /* Disable Xinst, Set the PLLDIV and USBDIV for proper clock speed for USB. Enable the VReg for USB
 * Set the Clock source with HSPLL, Enable Power On Timer, and disable Stack OverFlow Reset*/

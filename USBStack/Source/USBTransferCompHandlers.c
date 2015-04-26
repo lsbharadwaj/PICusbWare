@@ -121,22 +121,22 @@ void skip()
 void ReadComData()
 {
 
-    int i;
-    if(BDTable[2].BDin.UOWN == 0)
-        {
-            for (i = 0 ; i< EP[2].outBytesCopied ; i++)
-                EP2inDataHolder[i] = EP2outDataHolder[i];
-            EP[2].InBytesCopied = 0;
-            EP[2].InBytesTotal =  EP[2].outBytesCopied;
-            EP[2].inTranPending = 1;
-            inTranHandler(2);
-        }
-    EP[2].outBytesCopied = 0;
-    BDTable[2].BDout.BDCNT = 8;
-    BDTable[2].BDout.DTSEN = 1;
-    EP[2].outBytesCopied = 0;
-    EP[2].outTranPending = 1;
-    BDTable[2].BDout.UOWN = 1;
+//    int i;
+//    if(BDTable[2].BDin.UOWN == 0)
+//        {
+//            for (i = 0 ; i< EP[2].outBytesCopied ; i++)
+//                EP2inDataHolder[i] = EP2outDataHolder[i];
+//            EP[2].InBytesCopied = 0;
+//            EP[2].InBytesTotal =  EP[2].outBytesCopied;
+//            EP[2].inTranPending = 1;
+//            inTranHandler(2);
+//        }
+//    EP[2].outBytesCopied = 0;
+//    BDTable[2].BDout.BDCNT = 8;
+//    BDTable[2].BDout.DTSEN = 1;
+//    EP[2].outBytesCopied = 0;
+//    EP[2].outTranPending = 1;
+//    BDTable[2].BDout.UOWN = 1;
 }
 
 void WriteComData()
