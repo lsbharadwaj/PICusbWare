@@ -24,7 +24,7 @@ void main()
     INTCONbits.GIE = 1;
 
     //--------------------------------------------//
-
+    stdout = STREAM_USER;
     while(1)
         {
             printf("\nEnter your name: ");
