@@ -45,4 +45,7 @@ SerialStateType SerialState;
 
 __at 0x500 char EPSieBuffers[MAX_EP_TRANSFER_SIZE];     //< Buffers for the SIE engine
 __at 0x400 EPBufferDesc BDTable[MAX_ENDPOINT_CNT];      //<Buffer Descriptor table
+
+ringBufType USBRingBuf;
+char dataCnt;
 #endif // __USB_GLOBAL_VAR_H

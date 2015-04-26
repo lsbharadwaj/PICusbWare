@@ -47,4 +47,8 @@ extern __code const char DDesc[];
 extern __code const unsigned char cdc_config_descriptor[];
 extern __code const unsigned char cdc_str_descs[];
 extern EPConfig EPConfigurationData[];
+
+extern ringBufType USBRingBuf;      //< Usb ring buffer for data reception
+
+extern char dataCnt;                //< specifies the amoutn of data in the printf buf
 #endif // __USB_GLOBAL_EXTERN_H

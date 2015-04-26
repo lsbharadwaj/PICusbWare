@@ -16,6 +16,7 @@ void DeviceInit()
 void main()
 {
     char i = 0;
+    char test[24];
     //Enable device related registers
     DeviceInit();
     //Enable USB related registers and variables (NEEDs IPEN and GIE to be enabled before0
@@ -23,13 +24,18 @@ void main()
     INTCONbits.GIE = 1;
 
     //--------------------------------------------//
-    stdout = STREAM_USER;
+
     while(1)
         {
-            LATA ^= 0xff;
-            printf("This is a test %d\n",i);
-            i++;
-            delay10ktcy(200);
+            printf("\nEnter your name: ");
+            USBflush();
+            USBgets(test,24);
+            printf("\nYour name is %s \n", test);
+            printf("Enter your message: ");
+            USBflush();
+            USBgets(test,24);
+            printf("Your message - %s",test);
+            USBflush();
         }
     //--------------------------------------------//
 

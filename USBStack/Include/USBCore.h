@@ -39,4 +39,6 @@ void EPstall(char EpNo);
 void ControlTransferHandler();
 char outTranHandler(char EPno);
 char inTranHandler(char EPno);
+void USBflush();
+void USBgets(char* buf, char maxDataSize);
 #endif // __USB_CORE_H
