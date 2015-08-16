@@ -20,9 +20,11 @@
 //  ================================================================================
 */
 #include <pic16/pic18fregs.h>
+#ifdef USE_USB_LIB
 #include <pic16/stdio.h>
 #include <USBGlobalExtern.h>
 #include <USBCore.h>
+
 
 /*
 This function implements the USB putchar so that
@@ -90,3 +92,4 @@ void USBgets(char *data, char maxDataSize)
     //add the end of string
     data[i] = '\0';
 }
+#endif

@@ -20,6 +20,7 @@
 //  ================================================================================
 */
 #include <USBClassReq.h>
+#ifdef USE_USB_LIB
 void SetControlLineState()
 {
     if(EP[0].currentStage == Setup)
@@ -51,3 +52,4 @@ void SetLineCoding()
         }
 }
 
+#endif

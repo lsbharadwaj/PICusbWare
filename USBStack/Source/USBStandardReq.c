@@ -19,6 +19,7 @@
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //  ================================================================================
 */
+#ifdef USE_USB_LIB
 #include <USBStandardReq.h>
 void setDescriptor()
 {
@@ -108,3 +109,4 @@ void setAddress()
             UADDR = SetupReq.wValue;
         }
 }
+#endif

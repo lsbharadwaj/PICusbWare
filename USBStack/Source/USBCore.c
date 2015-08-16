@@ -20,6 +20,7 @@
 //  ================================================================================
 */
 #include <USBCore.h>
+#ifdef USE_USB_LIB
 #include <USBGlobalVar.h>
 #include <USBDescriptor.h>
 #include <USBTypedef.h>
@@ -311,3 +312,4 @@ char inTranHandler(char EPno)
         EP[EPno].inTranPending = 0;
     return (0);
 }
+#endif
